@@ -2,6 +2,7 @@ var $form = document.querySelector("form");
 var $higherAge = document.querySelector("#higherAge");
 var $lowerAge = document.querySelector("#lowerAge");
 var $age = document.querySelector("#age");
+var $clear_btn = document.querySelector("#clear")
 var agesH = [];
 var agesL = [];
 
@@ -24,3 +25,9 @@ $form.addEventListener("submit", function (e) {
 		e.preventDefault();
 	}
 });
+$clear_btn.addEventListener("click", function(){
+	$higherAge.innerHTML = ""
+	$lowerAge.innerHTML = ""
+	agesH=[]
+	agesL=[]
+})
