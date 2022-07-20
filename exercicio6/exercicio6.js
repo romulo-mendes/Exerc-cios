@@ -8,7 +8,10 @@ $form.addEventListener("submit", function (e) {
 	e.preventDefault();
 	names.unshift($name.value);
 	$name.value = "";
-	$show.innerHTML = "<h3>Nomes:</h3>" + names;
+	$show.innerHTML = "";
+	names.forEach((element) => {
+		$show.innerHTML += element + "<br>";
+	});
 });
 
 $clear.addEventListener("click", function () {

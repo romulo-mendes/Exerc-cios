@@ -2,7 +2,7 @@ var $form = document.querySelector("form");
 var $higherAge = document.querySelector("#higherAge");
 var $lowerAge = document.querySelector("#lowerAge");
 var $age = document.querySelector("#age");
-var $clear_btn = document.querySelector("#clear")
+var $clear_btn = document.querySelector("#clear");
 var agesH = [];
 var agesL = [];
 
@@ -20,14 +20,14 @@ $form.addEventListener("submit", function (e) {
 	} else {
 		agesL.push(parseInt($age.value));
 		$lowerAge.innerHTML =
-			"Existe(m) " + agesL.length + " maior de idade: <br>" + agesL;
+			"Existe(m) " + agesL.length + " menor de idade: <br>" + agesL;
 		$age.value = "";
 		e.preventDefault();
 	}
 });
-$clear_btn.addEventListener("click", function(){
-	$higherAge.innerHTML = ""
-	$lowerAge.innerHTML = ""
-	agesH=[]
-	agesL=[]
-})
+$clear_btn.addEventListener("click", function () {
+	$higherAge.innerHTML = "";
+	$lowerAge.innerHTML = "";
+	agesH = [];
+	agesL = [];
+});

@@ -1,0 +1,19 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercício 44</title>
+	</head>
+	<body>
+		<div id="number"></div>
+		<script>
+			var $num = document.getElementById("number");
+			var cont = 0;
+			setInterval(function () {
+				$num.innerHTML += cont + "<br>";
+				cont++;
+			}, 1000);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercício 15</title>
+		<style>
+			.container {
+				display: flex;
+				justify-content: center;
+				gap: 1%;
+			}
+			#high-low {
+				width: 33%;
+			}
+			#averageF {
+				width: 33%;
+			}
+			#numberM {
+				width: 33%;
+			}
+			h3 {
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="#" method="post">
+			<label for="heigh">Altura:</label>
+			<input
+				autofocus
+				type="number"
+				id="height"
+				placeholder="Digite a altura em 'cm'"
+			/>
+			<label for="gender">Sexo:</label>
+			<input type="text" id="gender" maxlength="1" placeholder="Digite 'M' ou 'F'" />
+			<button type="submit">Enviar</button>
+			<button type="button" id="clear">Limpar</button>
+		</form>
+		<div class="container">
+			<div id="high-low"></div>
+			<div id="averageF"></div>
+			<div id="numberM"></div>
+		</div>
+
+		<script src="/exercicio15/exercicio15.js"></script>
+	</body>
+</html>

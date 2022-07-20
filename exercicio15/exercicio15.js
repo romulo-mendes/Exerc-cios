@@ -1,12 +1,13 @@
 var people = [];
 var males = [];
 var females = [];
+var totalF = 0;
 var $form = document.querySelector("form");
 var $height = document.querySelector("#height");
 var $gender = document.querySelector("#gender");
-var $male = document.querySelector("#male");
-var $female = document.querySelector("#female");
-var $higher = document.querySelector("#higher");
+var $highLow = document.querySelector("#high-low");
+var $averageF = document.querySelector("#averageF");
+var $numberM = document.querySelector("#numberM");
 var $clear_btn = document.querySelector("#clear");
 
 $form.addEventListener("submit", function (e) {
@@ -17,32 +18,42 @@ $form.addEventListener("submit", function (e) {
 		alert("Preencha o sexo com 'M' ou 'F'!");
 	} else if (!$gender.value || !$height.value) {
 		alert("Preencha todos os campos antes de continuar!");
-	} else if (people.length <= 4) {
+	} else if (people.length <= 15) {
 		var dados = { gender: gender == "m" ? "Masculino" : "Feminino", height };
 		people.push(dados);
-		males = people.filter((element) => element.gender === "Masculino").length;
-		$male.innerHTML = "<h3>Masculino:</h3>" + males;
-		females = people.filter((element) => element.gender === "Feminino").length;
-		$female.innerHTML = "<h3>Feminino:</h3>" + females;
 		people.sort((a, b) => b.height - a.height);
-		console.log(people);
-		$higher.innerHTML =
-			"<h3>Maior pessoa:</h3>Sexo:" +
-			people[0].gender +
-			"<br>Altura:" +
+		$highLow.innerHTML =
+			"<h3>Maior altura: </h3>" +
 			people[0].height +
-			"cm";
+			"<br><h3>Menor altura: </h3>" +
+			people[people.length - 1].height;
+		males = people.filter((element) => element.gender === "Masculino").length;
+		females = people.filter((element) => element.gender === "Feminino");
+		females.forEach((element) => {
+			totalF += element.height;
+		});
+		totalF = totalF / females.length;
+		$averageF.innerHTML = "<h3>Média de altura das mulheres: </h3>" + totalF;
+
+		if (males > 0) {
+			$numberM.innerHTML = "<h3>Número de homens: </h3>" + males;
+		}
 		$gender.value = "";
 		$height.value = "";
+		$height.focus();
 	} else {
 		alert("Todos os valores foram digitados");
 	}
 });
 $clear_btn.addEventListener("click", function () {
-	$male.innerHTML = "";
-	$female.innerHTML = "";
+	$gender.value = "";
+	$height.value = "";
+	$highLow.innerHTML = "";
+	$averageF.innerHTML = "";
 	people = [];
 	males = [];
 	females = [];
-	$higher.innerHTML = "";
+	totalF = 0;
+	$numberM.innerHTML = "";
+	$height.focus();
 });

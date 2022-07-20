@@ -1,0 +1,33 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercício 45a</title>
+	</head>
+	<body>
+		<form action="#" method="post" id="formSearch">
+			<h3>Buscar Deuses:</h3>
+			<label for="txt">Buscar: </label>
+			<input type="search" id="txt" maxlength="1" placeholder="Digite o caractere" />
+			<label for="order">Ordem de poder:</label>
+			<select name="order" id="order">
+				<option value="lowToHigh">Do menor para o maior</option>
+				<option value="highToLow">Do maior para o menor</option>
+			</select>
+			<button type="submit">Buscar</button>
+			<button type="button" onclick="clearAll()">Limpar</button>
+		</form>
+		<form action="#" id="formAdd" method="post">
+			<h3>Cadastrar Deuses:</h3>
+			<label for="name">Nome: </label>
+			<input type="text" name="name" id="name" placeholder="Digite o nome" />
+			<label for="power">Poder: </label>
+			<input type="number" name="power" id="power" placeholder="Digite o poder" />
+			<button type="submit">Enviar</button>
+		</form>
+
+		<ul id="ul"></ul>
+		<script src="/exercicio45-46/exercicio45.js"></script>
+	</body>
+</html>
