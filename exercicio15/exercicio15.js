@@ -32,7 +32,7 @@ $form.addEventListener("submit", function (e) {
 		females.forEach((element) => {
 			totalF += element.height;
 		});
-		totalF = totalF / females.length;
+		totalF = totalF / females.length||0;
 		$averageF.innerHTML = "<h3>Média de altura das mulheres: </h3>" + totalF;
 
 		if (males > 0) {

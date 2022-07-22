@@ -19,7 +19,7 @@ var gods = [
 var godsFiltered = gods;
 
 /* Evento para o select */
-$order.addEventListener("change", (e) => {
+$order.addEventListener("change", () => {
 	reOrderGods();
 });
 /* Evento de busca */
@@ -48,7 +48,6 @@ $formAdd.addEventListener("submit", (e) => {
 });
 /* Função de Limpar */
 function clearAll() {
-	find = [];
 	$ul.innerHTML = "";
 	$txt.value = "";
 	$txt.focus();
@@ -56,7 +55,7 @@ function clearAll() {
 /* Função para mostrar */
 function showGods() {
 	$ul.innerHTML = "";
-	godsFiltered.forEach((element, index) => {
+	godsFiltered.forEach((element) => {
 		var $li = document.createElement("li");
 		var $btnDlt = document.createElement("button");
 		var $btnEdt = document.createElement("button");
@@ -68,7 +67,7 @@ function showGods() {
 		);
 		/* Delete Button */
 		$btnDlt.textContent = "Deletar";
-		$btnDlt.onclick = function (e) {
+		$btnDlt.onclick = function () {
 			gods.forEach((godElement, godIndex) => {
 				if (element.name == godElement.name) {
 					gods.splice(godIndex, 1);
@@ -82,14 +81,14 @@ function showGods() {
 		$powerEdit.value = element.power;
 		$powerEdit.type = "number";
 		$saveEdit.textContent = "Salvar";
-		$btnEdt.onclick = function (e) {
+		$btnEdt.onclick = function () {
 			$li.innerHTML = "";
 			$li.appendChild($nameEdit);
 			$li.appendChild($powerEdit);
 			$li.appendChild($saveEdit);
 		};
 		/* Save Button */
-		$saveEdit.onclick = function (e) {
+		$saveEdit.onclick = function () {
 			element.name = $nameEdit.value;
 			element.power = parseInt($powerEdit.value);
 			showGods();
